@@ -5,6 +5,8 @@ img {
 .header {
     justify-content: center;
     height: 10%;
+    background-color: #293241;
+    color: antiquewhite;
 }
 
 span {
