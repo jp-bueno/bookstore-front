@@ -1,8 +1,8 @@
 import { environment } from 'src/environments/environment';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Categoria } from './categoria-read/categoria.model';
+import { Categoria } from './categoria.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,8 @@ export class CategoriaService {
 
   constructor(private http: HttpClient) {}
 
-  findAll():Observable<Categoria[]>{
-    const url = `${this.baseUrl}/categorias`
-    return this.http.get<Categoria[]>(url)
-  }
+    findAll():Observable<Categoria[]> {
+      const url = `${this.baseUrl}/categorias`
+      return this.http.get<Categoria[]>(url)
+    }
 }

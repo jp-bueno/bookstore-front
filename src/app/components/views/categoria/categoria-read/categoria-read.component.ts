@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../categoria.service';
-import { Categoria } from './categoria.model';
+import { Categoria } from '../categoria.model';
 
 @Component({
   selector: 'app-categoria-read',
@@ -9,12 +9,13 @@ import { Categoria } from './categoria.model';
 })
 export class CategoriaReadComponent implements OnInit {
   
-  categorias: Categoria[] = []
+  categorias: Categoria[] = []  // Array de categoria (que já recebe um array vazio)
 
   displayedColumns: string[] = ['id', 'nome', 'descricao', 'acoes'];
   
   constructor(private service: CategoriaService) { }
   
+  //sempre que a aplicação for carregada ele irá chamar os métodos que estão dentro
   ngOnInit(): void {
     this.findAll();
   }
