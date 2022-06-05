@@ -20,10 +20,20 @@ export class CategoriaService {
       return this.http.get<Categoria[]>(url)
     }
 
+    findById(id: string): Observable<Categoria> {
+      const url = `${this.baseUrl}/categorias/${id}` //para colocar a variável de id 
+      return this.http.get<Categoria>(url); // irá buscar uma categoria por meio do seu id
+    } 
+
     //MÉTODO PARA CIRAR UMA NOVA CATEGORIA
     create(categoria: Categoria): Observable<Categoria> {
       const url = `${this.baseUrl}/categorias`
       return this.http.post<Categoria>(url, categoria);
+    }
+
+    delete(id: String): Observable<void> {
+      const url = `${this.baseUrl}/categorias/${id}`
+      return this.http.delete<void>(url);
     }
 
     //Mensagem que irá aparecer como um PopUp na tela para diversas funcionalidades
