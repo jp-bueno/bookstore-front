@@ -31,9 +31,15 @@ export class CategoriaService {
       return this.http.post<Categoria>(url, categoria);
     }
 
+    //MÉTODO PARA DELETAR
     delete(id: String): Observable<void> {
       const url = `${this.baseUrl}/categorias/${id}`
       return this.http.delete<void>(url);
+    }
+
+    update(categoria: Categoria): Observable<void> {
+      const url = `${this.baseUrl}/categorias/${categoria.id}`
+      return this.http.put<void>(url, categoria)
     }
 
     //Mensagem que irá aparecer como um PopUp na tela para diversas funcionalidades
@@ -44,4 +50,5 @@ export class CategoriaService {
         duration: 3000
       })
     }
+
 }
